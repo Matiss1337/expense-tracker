@@ -1,21 +1,19 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { GlobalContext } from '../context/GlobalState'
+import { Transaction } from './transaction';
 
 export const History = () => {
+const { transactions } = useContext(GlobalContext);
+
   return (
     <div className='flex flex-col bg-violet-200'>
         <div>
             <span>History</span>
         </div>
         <ul className='flex flex-col bg-blue-100'>
-            <li>
-                <span>1</span>
-            </li>
-            <li>
-                <span>2</span>
-            </li>
-            <li>
-                <span>3</span>
-            </li>
+            {transactions.map(transaction => (
+                <Transaction key={transaction.id} transaction={transaction}/>
+            ))}
         </ul>
 
     </div>
