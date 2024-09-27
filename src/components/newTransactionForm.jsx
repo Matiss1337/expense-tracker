@@ -1,20 +1,37 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react';
+import { GlobalContext } from '../context/GlobalState';
 
 export const NewTransactionForm = () => {
-    const [name, setName] = useState('');
-    const [value, setValue] = useState(0);
+    const [text, setText] = useState('');
+    const [amount, setAmount] = useState(0);
+    const { addTransaction } = useContext(GlobalContext);
+
+    const onSubmit = e => {
+        e.preventDefault();
+
+        const newTransaction = {
+            id: Math.floor(Math.random() * 100000),
+            text,
+            amount: +amount // Ensure it's a number
+        };
+
+        console.log(newTransaction);
+        addTransaction(newTransaction);
+        setText('');
+        setAmount(0);
+    };
 
     return (
         <div className='bg-rose-50 p-4 rounded'>
             <h2 className='text-lg font-bold mb-4'>Add New Transaction</h2>
-            <form>
+            <form onSubmit={onSubmit}>
                 <div className='mb-4'>
                     <label className='block text-sm font-medium text-gray-700' htmlFor='name'>
                         Transaction Name
                     </label>
                     <input
-                        value={name}
-                        onChange={(e) => setName(e.currentTarget.value)}
+                        value={text}
+                        onChange={(e) => setText(e.currentTarget.value)}
                         type='text'
                         name='name'
                         placeholder='Enter transaction name...'
@@ -22,14 +39,14 @@ export const NewTransactionForm = () => {
                     />
                 </div>
                 <div className='mb-4'>
-                    <label className='block text-sm font-medium text-gray-700' htmlFor='value'>
+                    <label className='block text-sm font-medium text-gray-700' htmlFor='amount'>
                         Transaction Value
                     </label>
                     <input
-                        value={value}
-                        onChange={(e) => setValue(e.currentTarget.value)}
+                        value={amount}
+                        onChange={(e) => setAmount(e.currentTarget.value)}
                         type='number'
-                        name='value'
+                        name='amount'
                         className='mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2'
                     />
                 </div>
@@ -41,5 +58,5 @@ export const NewTransactionForm = () => {
                 </button>
             </form>
         </div>
-    )
-}
+    );
+};
