@@ -7,13 +7,22 @@ export const Transaction = ({ transaction }) => {
     const positive = transaction.amount > 0;
 
     return (
-        <li className={`flex justify-between ${positive ? 'bg-green-300' : 'bg-red-400'}`}>
-            <span>
-                {transaction.text} {positive ? "+" : "-"}${Math.abs(transaction.amount)}
-            </span>
+        <li className="flex mr-6 relative h-[24px]">
+            <div className="flex gap-1 w-full">
+                <span className={`w-1 h-full ${positive ? 'bg-green-300' : 'bg-red-400'}`}></span>
+                <div className="flex justify-between w-full gap-1">
+                    <span className="whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-[224px]">
+                        {transaction.text}
+                    </span>
+                    <span className="font-semibold">
+                        {positive ? "+" : "-"} ${Math.abs(transaction.amount)}
+                    </span>
+                </div>
+            </div>
 
             <button onClick={() => deleteTransaction(transaction.id)}
-                className="bg-red-500 color-white w-4 h-4 rounded-md cursor-pointer">X</button>
+                    className="w-6 h-6 hover:cursor-pointer absolute -right-6">X
+            </button>
         </li>
     )
 }

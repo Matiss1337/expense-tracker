@@ -10,7 +10,7 @@ function App() {
     return (
         <GlobalProvider>
             <div className='flex justify-center items-center h-[100vh]'>
-                <div className='border border-gray-950 rounded-md p-4'>
+                <div className='border border-gray-950 rounded-md p-4 w-[360px] bg-gray-100'>
                     <Header />
                     <Balance />
                     <IncomeExpense />

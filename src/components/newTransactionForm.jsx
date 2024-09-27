@@ -22,8 +22,8 @@ export const NewTransactionForm = () => {
     };
 
     return (
-        <div className='bg-rose-50 p-4 rounded'>
-            <h2 className='text-lg font-bold mb-4'>Add New Transaction</h2>
+        <div>
+            <h2 className='font-semibold text-[20px] pb-2'>Add New Transaction</h2>
             <form onSubmit={onSubmit}>
                 <div className='mb-4'>
                     <label className='block text-sm font-medium text-gray-700' htmlFor='name'>
