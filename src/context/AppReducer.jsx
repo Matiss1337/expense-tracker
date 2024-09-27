@@ -10,6 +10,10 @@ export default (state, action) => {
                 ...state,
                 transactions: [action.payload, ...state.transactions]
             };
+        case 'RESET_ALL':
+            return {
+                transactions: []
+            };
         default:
             return state;
     }

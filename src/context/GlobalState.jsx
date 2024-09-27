@@ -32,11 +32,18 @@ export const GlobalProvider = ({ children }) => {
 		})
 	}
 
+	function resetAll() {
+		dispatch({
+			type: 'RESET_ALL'
+		})
+	}
+
 
 	return (<GlobalContext.Provider value={{
 		transactions: state.transactions,
 		deleteTransaction,
-		addTransaction
+		addTransaction,
+		resetAll
 	}}>
 		{children}
 	</GlobalContext.Provider>)
