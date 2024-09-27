@@ -11,7 +11,7 @@ export const Transaction = ({ transaction }) => {
             <div className="flex gap-1 w-full">
                 <span className={`w-1 h-full ${positive ? 'bg-green-300' : 'bg-red-400'}`}></span>
                 <div className="flex justify-between w-full gap-1">
-                    <span className="whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-[224px]">
+                    <span className="whitespace-nowrap overflow-hidden text-ellipsis w-full max-w-[210px]">
                         {transaction.text}
                     </span>
                     <span className="font-semibold">
