@@ -1,3 +1,4 @@
+https://matiss1337.github.io/expense-tracker/
 built to repeat react after year of not using it, used hooks, global state and dispatch with couple functions
 
 posible udpates - inital budget
